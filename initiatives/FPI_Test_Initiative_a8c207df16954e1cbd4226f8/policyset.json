@@ -1,0 +1,197 @@
+{
+ "properties": {
+  "displayName": "FPI_Test_Initiative",
+  "policyType": "Custom",
+  "metadata": {
+   "version": "1.0",
+   "parameterScopes": {
+    "listOfAllowedLocations": "/subscriptions/1baf6c39-7b0f-4d68-9988-b80963be93d0",
+    "listOfAllowedSKUs": "/subscriptions/1baf6c39-7b0f-4d68-9988-b80963be93d0",
+    "listOfResourceTypesNotAllowed": "/subscriptions/1baf6c39-7b0f-4d68-9988-b80963be93d0"
+   },
+   "createdBy": "5dad7351-96c9-4e40-9455-656737869943",
+   "createdOn": "2020-09-17T18:36:02.490361Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "init_allowedLocations": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed locations",
+     "description": "The list of allowed locations for resources.",
+     "strongType": "location"
+    },
+    "allowedValues": [
+     "eastus2",
+     "westus2",
+     "westus"
+    ],
+    "defaultValue": [
+     "westus2"
+    ]
+   },
+   "init_AllowedSkus": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed Skus",
+     "description": "The list of allowed VM SKUs",
+     "strongType": "vmSKUs"
+    },
+    "allowedValues": [
+     "Standard_G*",
+     "Standard_F*"
+    ],
+    "defaultValue": [
+     "Standard_G*"
+    ]
+   },
+   "init_AllowedResourceType": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed Resource Type",
+     "description": "The list of allowed resource types",
+     "strongType": "resourceTypes"
+    },
+    "allowedValues": [
+     "microsoft.compute*"
+    ]
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "There should be more than one owner assigned to your subscription_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/09024ccc-0c5f-475e-9457-b7c0d9ed487b",
+    "parameters": {},
+    "groupNames": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Cosmos DB allowed locations_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0473574d-2d43-4217-aefe-941fcdf7e684",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": "[parameters('init_allowedLocations')]"
+     }
+    },
+    "groupNames": [
+     "Allowed Locations"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Azure Backup should be enabled for Virtual Machines_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/013e242c-8828-4970-87b3-ab247555486d",
+    "parameters": {},
+    "groupNames": [
+     "Azure VM"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed virtual machine size SKUs_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
+    "parameters": {
+     "listOfAllowedSKUs": {
+      "value": "[parameters('init_AllowedSkus')]"
+     }
+    },
+    "groupNames": [
+     "Azure VM"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": "[parameters('init_allowedLocations')]"
+     }
+    },
+    "groupNames": [
+     "Allowed Locations"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Allowed locations for resource groups_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    "parameters": {
+     "listOfAllowedLocations": {
+      "value": "[parameters('init_allowedLocations')]"
+     }
+    },
+    "groupNames": [
+     "Allowed Locations"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Not allowed resource types_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/6c112d4e-5bc7-47ae-a041-ea2d9dccd749",
+    "parameters": {
+     "listOfResourceTypesNotAllowed": {
+      "value": "[parameters('init_AllowedResourceType')]"
+     }
+    },
+    "groupNames": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Key Vault objects should be recoverable_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0b60c0b2-2dc2-4e1c-b5c9-abbed971de53",
+    "parameters": {},
+    "groupNames": [
+     "Miscellaneous"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Network interfaces should not have public IPs_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/83a86a26-fd1f-447c-b59d-e51f44264114",
+    "parameters": {},
+    "groupNames": [
+     "Network Communications"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "RDP access from the Internet should be blocked_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e372f825-a257-4fb8-9175-797a8a8627d6",
+    "parameters": {
+     "effect": {
+      "value": "Audit"
+     }
+    },
+    "groupNames": [
+     "Network Communications"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "SSH access from the Internet should be blocked_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2c89a2e5-7285-40fe-afe0-ae8654b92fab",
+    "parameters": {
+     "effect": {
+      "value": "Audit"
+     }
+    },
+    "groupNames": [
+     "Network Communications"
+    ]
+   }
+  ],
+  "policyDefinitionGroups": [
+   {
+    "name": "Miscellaneous"
+   },
+   {
+    "name": "Allowed Locations"
+   },
+   {
+    "name": "Network Communications"
+   },
+   {
+    "name": "Azure VM"
+   }
+  ]
+ },
+ "id": "/subscriptions/1baf6c39-7b0f-4d68-9988-b80963be93d0/providers/Microsoft.Authorization/policySetDefinitions/a8c207df16954e1cbd4226f8",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "a8c207df16954e1cbd4226f8"
+}
