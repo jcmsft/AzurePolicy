@@ -1,0 +1,32 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Append a tag and its value to resource groups",
+  "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/49c88fc8-6fd1-46fd-a676-f12d1d3a4c71",
+  "scope": "/subscriptions/1baf6c39-7b0f-4d68-9988-b80963be93d0",
+  "notScopes": [],
+  "parameters": {
+   "tagName": {
+    "value": "CostCenter"
+   },
+   "tagValue": {
+    "value": "Team"
+   }
+  },
+  "description": "",
+  "metadata": {
+   "createdBy": "e923abb2-3c1b-49db-a84d-cc669ab37503",
+   "createdOn": "2020-05-28T01:44:34.9136132Z",
+   "updatedBy": "5dad7351-96c9-4e40-9455-656737869943",
+   "updatedOn": "2020-06-05T16:13:20.114802Z",
+   "parameterScopes": {}
+  },
+  "enforcementMode": "DoNotEnforce"
+ },
+ "id": "/subscriptions/1baf6c39-7b0f-4d68-9988-b80963be93d0/providers/Microsoft.Authorization/policyAssignments/1b3321f1833d1f873de8e41eedcea8e648c74c03ceab9a13567ac5bd8b27bc36",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "1b3321f1833d1f873de8e41eedcea8e648c74c03ceab9a13567ac5bd8b27bc36"
+}
